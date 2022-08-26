@@ -41,7 +41,7 @@ const Search = props => {
       });
   };
 
-  const pluginData = usePluginData('docusaurus-lunr-search');
+  const pluginData = usePluginData('docusaurus-lunr-search-ko');
   const getSearchDoc = () =>
     process.env.NODE_ENV === "production"
       ? fetch(`${baseUrl}${pluginData.fileNames.searchDoc}`).then((content) => content.json())

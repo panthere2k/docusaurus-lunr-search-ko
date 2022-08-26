@@ -19,7 +19,7 @@ module.exports = function (context, options) {
   }
 
   return {
-    name: 'docusaurus-lunr-search',
+    name: 'docusaurus-lunr-search-ko',
     getThemePath() {
       return path.resolve(__dirname, './theme');
     },
@@ -44,7 +44,7 @@ module.exports = function (context, options) {
       const lunrBuilder = lunr(function (builder) {
         if (languages) {
           this.use(languages)
-        } 
+        }
         this.ref('id')
         this.field('title', { boost: 200 })
         this.field('content', { boost: 2 })
@@ -72,7 +72,7 @@ module.exports = function (context, options) {
       const lunrIndex = lunrBuilder.build()
       console.timeEnd('docusaurus-lunr-search:: Indexing time')
       console.log(`docusaurus-lunr-search:: indexed ${indexedDocuments} documents out of ${files.length}`)
-      
+
       const searchDocFileContents = JSON.stringify(searchDocuments)
       console.log('docusaurus-lunr-search:: writing search-doc.json')
       // This file is written for backwards-compatibility with components swizzled from v2.1.12 or earlier.
@@ -109,7 +109,7 @@ function buildSearchData(files, addToSearchData) {
   }
   let activeWorkersCount = 0
   const workerCount = Math.max(2, os.cpus().length)
-  
+
   console.log(`docusaurus-lunr-search:: Start scanning documents in ${Math.min(workerCount, files.length)} threads`)
   const gauge = new Guage()
   gauge.show('scanning documents...')
@@ -133,7 +133,7 @@ function buildSearchData(files, addToSearchData) {
         }
       }
     }
-  
+
     for (let i = 0; i < workerCount; i++) {
       if (nextIndex >= files.length) {
         break

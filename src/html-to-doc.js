@@ -16,7 +16,7 @@ function* scanDocuments({ path, url }) {
   let vfile
   try {
     vfile = toVfile.readSync(path)
-  } catch (e) {
+  } catch (e) {docusaurus-lunr-search-ko
     if (e.code !== 'ENOENT') {
       console.error(`docusaurus-lunr-search:: unable to read file ${path}`)
       console.error(e)
