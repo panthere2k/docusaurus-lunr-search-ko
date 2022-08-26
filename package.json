@@ -1,7 +1,7 @@
 {
   "name": "docusaurus-lunr-search-ko",
   "version": "2.1.16",
-  "description": "Offline search component for Docusaurus V2",
+  "description": "Offline search component for Docusaurus V2 Korean supported",
   "main": "src/index.js",
   "publishConfig": {
     "access": "public",
@@ -10,9 +10,9 @@
   "scripts": {
     "test": "mocha '**/__tests__/**/*.spec.js'"
   },
-  "homepage": "https://github.com/lelouch77/docusaurus-lunr-search/blob/master/README.md",
+  "homepage": "https://github.com/bclabs-kylian/docusaurus-lunr-search-ko#readme",
   "repository": {
-    "url": "https://github.com/lelouch77/docusaurus-lunr-search/"
+    "url": "https://github.com/bclabs-kylian/docusaurus-lunr-search-ko"
   },
   "author": {
     "name": "Praveen N",
@@ -36,7 +36,8 @@
     "docusaurus",
     "lunr",
     "offline-search",
-    "documentation"
+    "documentation",
+    "korean"
   ],
   "license": "MIT",
   "dependencies": {
