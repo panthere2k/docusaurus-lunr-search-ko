@@ -1,6 +1,6 @@
 {
   "name": "docusaurus-lunr-search-ko",
-  "version": "2.1.17",
+  "version": "2.1.18",
   "description": "Offline search component for Docusaurus V2 Korean supported",
   "main": "src/index.js",
   "publishConfig": {
