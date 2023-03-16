@@ -62,20 +62,27 @@ function getFilePaths(routesPaths, outDir, baseUrl, options = {}) {
 
     routesPaths.forEach((route) => {
         if (route === `${baseUrl}404.html`) return
-        let filePath;
-        if (!indexBaseUrl){
-          if (route === baseUrl) {
-            // Special case for index.html
-            route = route.substr(baseUrl.length)
-            filePath = path.join(outDir, route, "index.html")
-          } else {
-            route = route.substr(baseUrl.length)
-            filePath = path.join(outDir, `${route}.html`)
-          }
-        } else {
-          route = route.substr(baseUrl.length)
-          filePath = path.join(outDir, route, "index.html")
+
+        const isBaseUrl = route === baseUrl
+
+        if (isBaseUrl && !indexBaseUrl) {
+            return;
         }
+
+        const candidatePaths = [route, route.substring(baseUrl.length)].flatMap(route => {
+            return [
+                path.join(outDir, `${route}.html`),
+                path.join(outDir, route, "index.html")
+            ]
+        });
+
+        const filePath = candidatePaths.find(fs.existsSync);
+        if(!fs.existsSync(filePath)) {
+            // if this error occurs, likely docusaurus changed some file generation aspects
+            // and we need to update the candidates above
+            console.warn(`docusaurus-lunr-search: could not resolve file for route '${route}', it will be missing in the search index`);
+        }
+
         // In case docs only mode routesPaths has baseUrl twice
         if(addedFiles.has(filePath)) return
         if (excludeRoutes.some((excludePattern) => minimatch(route, excludePattern))) {
