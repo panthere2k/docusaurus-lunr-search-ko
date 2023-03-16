@@ -26,7 +26,7 @@ class LunrSearchAdapter {
                 lvl0: doc.pageTitle || doc.title,
                 lvl1: doc.type === 0 ? null : doc.title
             },
-            url: this.baseUrl + doc.url,
+            url: doc.url,
             _snippetResult: formattedContent ? {
                 content: {
                     value: formattedContent,
@@ -48,6 +48,7 @@ class LunrSearchAdapter {
             }
         };
     }
+
     getTitleHit(doc, position, length) {
         const start = position[0];
         const end = position[0] + length;
@@ -109,8 +110,8 @@ class LunrSearchAdapter {
             preview += ' ...';
         }
         return this.getHit(doc, null, preview);
-
     }
+
     search(input) {
         return new Promise((resolve, rej) => {
             const results = this.getLunrResult(input);
