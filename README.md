@@ -18,9 +18,8 @@ Offline Search for Docusaurus V2.1 Korean supported
 ## Sample
 
 <p align="center">
-  <img width="460" height="300" src="https://raw.githubusercontent.com/lelouch77/docusaurus-lunr-search/master/assets/search-offline.png">
+  <img width="460" height="300" src="https://raw.githubusercontent.com/panthere2k/docusaurus-lunr-search-ko/master/assets/search-offline.png">
 </p>
-
 
 ## Prerequisites
 
@@ -32,30 +31,30 @@ For older version of node use `docusaurus-lunr-search` version `2.1.0`
 
 1. Install this package
 
-```
+```bash
 npm i docusaurus-lunr-search-ko --save
 ```
 2. Then run `npm install` to update, build, and link the packages
-```
+```bash
 npm install
 ```
 3. Add the docusaurus-lunr-search-ko plugin to your `docusaurus.config.js`
-```
+```bash
 module.exports = {
   // ...
     plugins: [require.resolve('docusaurus-lunr-search-ko')],
 }
 ```
 4. Then run docusaurus swizzle
-```
+```bash
 npm run swizzle docusaurus-lunr-search-ko SearchBar -- --eject --danger
 ```
 5. Then build your Docusaurus project
-```
+```bash
 npm run build
 ```
 6. Serve your application
-```
+```bash
 npx http-server ./build
 ```
 
